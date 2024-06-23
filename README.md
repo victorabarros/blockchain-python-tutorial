@@ -48,3 +48,10 @@ This github repository also contains 2 dashboards:
 4. `make remove-all` to finish all
 
 # Visit my Blog : http://adilmoujahid.com
+
+<!-- vtrTODO REMOVE THIS
+   https://twitter.com/messages/507185539-935655939474100224
+   https://t.co/CVDfDsvgq2
+   https://github.com/adilmoujahid/blockchain-python-tutorial
+   https://github.com/adilmoujahid/blockchain-python-tutorial/compare/master...victorabarros:blockchain-python-tutorial:master
+-->

@@ -257,7 +257,7 @@ def new_transaction():
 def get_transactions():
     #Get transactions from transactions pool
     transactions = blockchain.transactions
-
+    # vtrTODO consensus transaction with other nodes (resolve_transaction_conflicts)
     response = {'transactions': transactions}
     return jsonify(response), 200
 
@@ -271,6 +271,7 @@ def full_chain():
 
 @app.route('/mine', methods=['GET'])
 def mine():
+    # vtrTODO consensus (fetch transactions) before mine
     # We run the proof of work algorithm to get the next proof...
     last_block = blockchain.chain[-1]
     nonce = blockchain.proof_of_work()
@@ -296,6 +297,7 @@ def mine():
 @app.route('/nodes/register', methods=['POST'])
 def register_nodes():
     values = request.form
+    # vtrTODO validade url with urlparse(node).netloc
     nodes = values.get('nodes').replace(" ", "").split(',')
 
     if nodes is None:
@@ -303,6 +305,7 @@ def register_nodes():
 
     for node in nodes:
         blockchain.register_node(node)
+        # vtrTODO requests.post(f'{node}/nodes/register',{'nodes':request.url_root})
 
     response = {
         'message': 'New nodes have been added',
@@ -344,7 +347,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
     port = args.port
 
-    app.run(host='127.0.0.1', port=port)
+    app.run(host='0.0.0.0', port=port, debug=True)# vtrTODO remove debug=True
 
 
 
