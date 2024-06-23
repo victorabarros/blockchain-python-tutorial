@@ -40,6 +40,11 @@ This github repository also contains 2 dashboards:
 ```python blockchain_client.py -p 8080```
 4. You can access the blockchain frontend and blockchain client dashboards from your browser by going to localhost:5000 and localhost:8080
 
+## Run with Docker
 
+1. `make run-api    port=5000`
+2. `make run-api    port=5001`
+3. `make run-client port=8080`
+4. `make remove-all` to finish all
 
 # Visit my Blog : http://adilmoujahid.com
