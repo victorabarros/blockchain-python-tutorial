@@ -42,9 +42,9 @@ This github repository also contains 2 dashboards:
 
 ## Run with Docker
 
-1. `make run-api    port=5000`
-2. `make run-api    port=5001`
-3. `make run-client port=8080`
+1. `make run-api    port=5000` to run node of `blockchain` in `http://localhost:5000/`
+2. `make run-api    port=5001` to run node of `blockchain` in `http://localhost:5001/`
+3. `make run-client port=8080` to run the `client` in `http://localhost:8080/`
 4. `make remove-all` to finish all
 
 # Visit my Blog : http://adilmoujahid.com
