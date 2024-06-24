@@ -306,7 +306,6 @@ def mine():
 @app.route('/nodes/register', methods=['POST'])
 def register_nodes():
     values = request.form
-    # vtrTODO validade url with urlparse(node).netloc
     nodes = values.get('nodes').replace(" ", "").split(',')
 
     if nodes is None:
