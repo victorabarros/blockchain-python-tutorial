@@ -63,14 +63,23 @@ class Blockchain:
         """
         #Checking node_url has valid format
         parsed_url = urlparse(node_url)
+        new_url = ""
         if parsed_url.netloc:
-            self.nodes.add(parsed_url.netloc)
+            new_url = parsed_url.netloc
         elif parsed_url.path:
             # Accepts an URL without scheme like '192.168.0.5:5000'.
-            self.nodes.add(parsed_url.path)
+            new_url = parsed_url.path
         else:
             raise ValueError('Invalid URL')
 
+        self.nodes.add(new_url)
+
+        for node in self.nodes:
+            try:
+                requests.post(f'http://{node}/nodes/register', data={'nodes': new_url})
+            except Exception as e:
+                print(e)
+        return
 
     def verify_transaction_signature(self, sender_address, signature, transaction):
         """
@@ -305,7 +314,6 @@ def register_nodes():
 
     for node in nodes:
         blockchain.register_node(node)
-        # vtrTODO requests.post(f'{node}/nodes/register',{'nodes':request.url_root})
 
     response = {
         'message': 'New nodes have been added',
