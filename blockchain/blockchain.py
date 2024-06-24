@@ -71,6 +71,9 @@ class Blockchain:
         else:
             raise ValueError('Invalid URL')
 
+        if new_url in self.nodes:
+            return
+
         self.nodes.add(new_url)
 
         for node in self.nodes:
@@ -352,7 +355,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
     port = args.port
 
-    app.run(host='127.0.0.1', port=port)
+    app.run(host='0.0.0.0', port=port, debug=True)
 
 
 
